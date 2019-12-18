@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Product } from '../Models/product';
-import { EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 
@@ -15,14 +14,11 @@ export class ProductService {
 
   // Obs à cause de la requête HTTP
   getProducts(): Observable<Product[]> {
-    //return EMPTY;
     return this.http.get(`${this.baseUrl}/products`)
       .pipe(
         // Re-hydrate
         map((productArray: any[]) => productArray.map(productData => new Product(productData)))
       );
-
-    //
   }
 
   getProduct(productId: number): Observable<Product> {

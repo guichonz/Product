@@ -2,11 +2,17 @@
   <a class="navbar-brand" href="#">
     <img src="/assets/angularmiam-logo.png" width="150">
   </a>
+  <div class="ml-auto">
+    <app-order-info></app-order-info>
+  </div>
+  <div class="ml-auto">
+    <app-carticon></app-carticon>
+  </div>
+
 </nav>
 
 <div class="container">
-  <i class = "fas fa-user">
-  </i>
-
+  <!-- <router-outlet></router-outlet> -->
+  <app-product-list></app-product-list>
   Contenu du site (ROUTER-OUTLET)
 </div>

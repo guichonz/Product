@@ -23,8 +23,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
     HttpClientModule
   ],
   providers: [
-    { provide: 'BACKEND_URL', useValue: 'http://localhost:3400' }
-  ],
+    { provide: 'BACKEND_URL', useValue: 'http://localhost:3004' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

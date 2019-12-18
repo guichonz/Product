@@ -447,8 +447,8 @@
         "type": "plat",
         "description": "Strain of other specified muscles, fascia and tendons at wrist and hand level, right hand, initial encounter",
         "stock": "71621",
-        "photo":"http://dummyimage",
+        "photo": "http://dummyimage.com/184x151.bmp/dddddd/000000",
         "price": 53
       }
     ]
-}
+  }
