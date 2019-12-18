@@ -1,5 +1,5 @@
 <p>product-item works!</p>
-<div class="card product">
+<div class="card product" [routerLink]="['/produit', product.id]">
     <img [src]="product.photo" class="card-img-top" alt="..." style="width:318px; height:240px;">
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
