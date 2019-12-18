@@ -1,6 +1,10 @@
 <ng-container *ngIf="product">
-    <div> produit {{product.id}} </div>
-</ng-container>
 
-
-
+  <div class="card product" [routerLink]="['/produit', product.id]" align="center">
+    <img [src]="product.photo" class="card-img-top" alt="..." style="width:318px; height:240px;">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <a href="./" class="btn btn-primary">retour à la liste des produits</a>
+    </div>
+  </div>
