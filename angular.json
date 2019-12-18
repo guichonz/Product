@@ -124,6 +124,22 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularmiam"
+    }
+  },
+  "defaultProject": "angularmiam",
+  "schematics": {
+    "@schematics/angular:component": {
+      "spec": false,
+      "inlineStyle": true
+    },
+    "@schematics/angular:service": {
+      "spec": false
+    },
+    "@schematics/angular:guard": {
+      "spec": false
+    },
+    "@schematics/angular:directive": {
+      "spec": false
+    }
+  }
 }
