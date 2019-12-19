@@ -17,6 +17,7 @@ export class Product {
     tags: any[];
     nutritionalInfo: any[];
     slug: string;
+    shortDescription: string;
 
     constructor(options: {
         id: number;
@@ -29,6 +30,7 @@ export class Product {
         tags: any[];
         nutritionalInfo: any[];
         slug: string;
+        shortDescription: string;
     }) {
         this.id = options.id;
         this.name = options.name;
@@ -52,5 +54,6 @@ export class Product {
         this.tags = options.tags;
         this.nutritionalInfo = options.nutritionalInfo;
         this.slug = options.slug;
+        this.shortDescription = options.description.substring(0, 100);
     }
 }

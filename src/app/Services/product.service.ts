@@ -30,6 +30,16 @@ export class ProductService {
     );
   }
 
+  getProductBySlug(slug: string): Observable <Product> {
+    //  return EMPTY;
+      return this.http.get(`${this.baseUrl}/products?/${slug}`)
+      .pipe(
+        map(results => results[0]), // garde le premier objet dans la liste des obj renvoyés
+        map((productData: any) => new Product(productData)),
+        catchError(this.muteRequestError)
+      );
+    }
+
   decrementStock(productId: number, numUnits: number) {
   }
 
