@@ -1,7 +1,22 @@
 <p>product-list works!</p>
-
+<h2>Entrée</h2>
 <div class="row">
-    <div  class="col-sm-4" *ngFor="let currentProduct of products">
+    <div  class="col-sm-4" *ngFor="let currentProduct of starters">
         <app-product-item [product]="currentProduct"></app-product-item>
     </div>
+</div>
+
+<h2>Plat</h2>
+<div class="row">
+    <div  class="col-sm-4" *ngFor="let currentProduct of mainCourses">
+        <app-product-item [product]="currentProduct"></app-product-item>
+    </div>
+</div>
+
+<h2>Dessert</h2>
+<div class="row">
+    <div  class="col-sm-4" *ngFor="let currentProduct of desserts">
+        <app-product-item [product]="currentProduct"></app-product-item>
+    </div>
+
 </div>
