@@ -28,6 +28,9 @@ export class CartService {
       // pas trouvé
       this.productInfo.push({product: product, quantity: 1});
     }
+    // Incrémente la quantité totale d'articles et recalcule le montant
+    this.totalProducts++;
+    this.totalAmount = this.totalAmount + product.price;
 
   }
 
@@ -40,7 +43,15 @@ export class CartService {
       if (this.productInfo[index].quantity === 0) {
         this.productInfo.splice(index, 1);
       }
+      // Décrémente la quantité totale d'articles et recalcule le montant
+      this.totalProducts--;
+      this.totalAmount = this.totalAmount - product.price;
     }
+  }
+
+  getNumForProduct(productId: number): number {
+    const pInfo = this.productInfo.find(pInf => pInf.product.id === productId);
+    return pInfo ? pInfo.quantity : 0 ;
   }
 
   // Renvoie le contenu du panier
