@@ -1,1 +1,6 @@
-<p>carticon works!</p>
+<div class="cart">
+    <a [routerLink] = "['/panier']">
+        <i class="fas fa-shopping-cart fa-2x"  ></i>
+        <span>{{ getTotalProducts() }}</span>
+    </a>
+</div>
