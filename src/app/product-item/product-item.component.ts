@@ -9,12 +9,16 @@ import { CartService } from '../services/cart.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
-  numProducts: number;
+  // numProducts: number;
 
   constructor(private cart: CartService) { }
 
   ngOnInit() {
-    this.numProducts = this.cart.getNumForProduct(this.product.id); // TODO: initialiser avec le panier !
+    // this.numProducts = this.cart.getNumForProduct(this.product.id); // TODO: initialiser avec le panier !
+  }
+
+  getNumProducts() {
+    return this.cart.getNumForProduct(this.product.id);
   }
 
 }
