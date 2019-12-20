@@ -1,7 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../Services/cart.service';
-import { Product } from '../Models/product';
-import { ProductItemComponent } from '../product-item/product-item.component';
+import { Product } from '../models/product';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart-detail',
@@ -9,19 +9,18 @@ import { ProductItemComponent } from '../product-item/product-item.component';
   styles: []
 })
 export class CartDetailComponent implements OnInit {
-  productInfos: Array<{ product: Product, quantity: number; }> = [];
-  totalAmount: number;
+  productInfo: Array<{ product: Product, quantity: number; }>;
   totalProducts: number;
 
   constructor(private cart: CartService) { }
 
   ngOnInit() {
-    this.productInfos = this.cart.getAllProducts();
-    this.totalAmount = this.cart.totalAmount;
+    this.productInfo = this.cart.productInfo;
     this.totalProducts = this.cart.totalProducts;
   }
 
+  getTotalAmount() {
+    return this.cart.totalAmount;
+  }
+
 }
-
-
-// productInfo: Array<{ product: Product, quantity: number; }> = [];

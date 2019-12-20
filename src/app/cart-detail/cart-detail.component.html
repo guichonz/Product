@@ -1,38 +1,42 @@
-<div class="row" *ngIf="productInfos.length > 0; else cartEmpty">
-    <div class="col-md-8 offset-md-2">
+<div class="row" *ngIf="productInfo.length > 0; else cartEmpty">
+  <div class="col-md-8 offset-md-2">
 
-      <h1>Panier</h1>
+    <h1>Panier</h1>
 
-      <table class="table" >
-        <tbody>
-          <tr *ngFor = "let productInfo of productInfos; let i = index;">
-            <th scope="row">{{i +1}}</th>
-            <td> <img [src] = "productInfo.product.photo"> {{ productInfo.product.name }}({{productInfo.quantity}})</td>
-            <td><i class="far fa-minus-square fa-2x"></i>
-                &nbsp;
-                <i class="far fa-plus-square fa-2x"></i></td>
-            <td>{{ (productInfo.product.price * productInfo.quantity) | currency:'€' }}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th scope="col">{{totalAmount | currency: '€'}} </th>
-          </tr>
-        </tfoot>
-      </table>
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let pInfo of productInfo; let i = index;">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ pInfo.product.name }} ({{ pInfo.quantity }})</td>
+          <td>
+            <app-product-buttons [product]="pInfo.product" [numProducts]="pInfo.quantity"></app-product-buttons>
+          </td>
+          <td>{{ (pInfo.product.price * pInfo.quantity) | currency:'€' }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th scope="col"><h3>{{ getTotalAmount() | currency:'€' }}</h3></th>
+        </tr>
+      </tfoot>
+    </table>
 
-      <button type="button" class="btn btn-primary btn-lg btn-block">
-        Valider le panier
-      </button>
+    <button type="button" class="btn btn-primary btn-lg btn-block">
+      Valider le panier
+    </button>
+    <button type="button" class="btn btn-secondary btn-lg btn-block" routerLink="/liste">
+      Annuler
+    </button>
 
-    </div>
   </div>
-  <ng-template #cartEmpty>
-    <div class="alert alert-info" style="font-size:4em;">
-      Votre panier est vide.<br>
-      <i class="fas fa-cart-plus"></i> Veuillez ajouter des produits.
-    </div>
-  </ng-template>
+</div>
+
+<ng-template #cartEmpty>
+  <div class="alert alert-info" style="font-size:4em;">
+    Votre panier est vide.<br>
+    <i class="fas fa-cart-plus"></i> Veuillez ajouter des produits.
+  </div>
+</ng-template>

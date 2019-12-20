@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../Models/product';
-import { ProductService } from '../Services/product.service';
 import { CartService } from '../Services/cart.service';
 
 @Component({
@@ -16,18 +15,6 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit() {
     this.numProducts = this.cart.getNumForProduct(this.product.id); // TODO: initialiser avec le panier !
-  }
-
-  add(event: Event) {
-    event.stopPropagation();
-    this.cart.addProduct(this.product);
-    this.numProducts++;
-  }
-
-  remove(event: Event) {
-    event.stopPropagation();
-    this.cart.removeProduct(this.product);
-    this.numProducts--;
   }
 
 }
